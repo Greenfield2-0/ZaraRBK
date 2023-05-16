@@ -11,7 +11,7 @@ export const getAll = () => {
 
 export const getOne = (date: any) => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT * FROM oredrs WHERE orderid=${date}`;
+    const sql = `SELECT * FROM orders WHERE orderid=${date}`;
     con.query(sql, (err, rslt) => {
       if (err) reject(err);
       else resolve(rslt);
