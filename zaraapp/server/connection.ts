@@ -1,5 +1,4 @@
 import mysql, {Connection} from "mysql2";
-
 const db = {
   host: 'localhost',
   user: 'root',
