@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `zara`.`users` (
 -- -----------------------------------------------------
 -- Table `zara`.`products`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Trendy`.`products` (
+CREATE TABLE IF NOT EXISTS `zara`.`products` (
   `productid` INT NOT NULL AUTO_INCREMENT,
   `productname` VARCHAR(255) NOT NULL,
   `productprice` INT NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `Trendy`.`products` (
 
 -- Table `zara`.`orders`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Trendy`.`orders` (
+CREATE TABLE IF NOT EXISTS `zara`.`orders` (
   `orderid` INT NOT NULL AUTO_INCREMENT,
   `orderdate` INT NOT NULL,
    `userid` INT NOT NULL,
