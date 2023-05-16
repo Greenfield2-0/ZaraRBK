@@ -1,6 +1,6 @@
 import app from './app';
-import db from '../server/connection';
-
+import connection  from './connection';
+connection
 // Setting the port and listening for connections
 const port: number = 5000;
 

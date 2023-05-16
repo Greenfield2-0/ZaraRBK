@@ -46,12 +46,14 @@ CREATE TABLE IF NOT EXISTS `zara`.`products` (
 CREATE TABLE IF NOT EXISTS `zara`.`orders` (
   `orderid` INT NOT NULL AUTO_INCREMENT,
   `orderdate` INT NOT NULL,
-   `userid` INT NOT NULL,
+  `userid` INT NOT NULL,
   PRIMARY KEY (`orderid`),
-  INDEX (`userid` ASC) VISIBLE,
+  UNIQUE KEY `uniq_userid` (`userid`),
   CONSTRAINT `fk_orders_user`
     FOREIGN KEY (`userid`)
     REFERENCES `zara`.`users` (`userid`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
 );
 
 SET SQL_MODE=@OLD_SQL_MODE;
