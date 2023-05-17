@@ -59,7 +59,7 @@ const userLogin = async (req: Request, res: Response) => {
           const token = jwt.sign({ useremail: user[0].useremail }, "zaraToken" as Secret, {
             expiresIn: '1h',
           });
-
+          res.cookie('jwt', token, { httpOnly: true });
           return res.status(200).json({ token, message: 'You logged in successfully' });
         } else {
           return res.status(401).json({ message: 'Invalid password' });
