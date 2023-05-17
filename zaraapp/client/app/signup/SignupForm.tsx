@@ -17,7 +17,7 @@ export default function SignupForm() {
       useremail,
       userpw,
     }
-    const res = await axios.post("http://localhost:3000/api/user/signup", newUser, {
+    const res =  axios.post("http://localhost:3000/api/user/signup", newUser, {
       headers: {
         "Content-Type": "application/json"
       }
