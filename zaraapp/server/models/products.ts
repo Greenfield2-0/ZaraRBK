@@ -11,7 +11,7 @@ export const getAll = () => {
 
 export const getAllWithOrder = (id: any) => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT * FROM orders WHERE orderid=${id}`;
+    const sql = `SELECT *FROM products WHERE orderid=${id}`;
     con.query(sql, (err, rslt) => {
       if (err) reject(err);
       else resolve(rslt);
@@ -21,7 +21,7 @@ export const getAllWithOrder = (id: any) => {
 
 export const createProduct = (product: any) => {
   return new Promise((resolve, reject) => {
-    const sql = "INSERT INTO orders SET ?";
+    const sql = "INSERT INTO products SET ?";
     con.query(sql, product, (err, result) => {
       if (err) {
         reject(err);
@@ -34,7 +34,7 @@ export const createProduct = (product: any) => {
 
 export const changeProduct=(id: any, order: any) => {
   return new Promise((resolve, reject) => {
-    const sql = `UPDATE orders SET ? WHERE productid=${id}`;
+    const sql = `UPDATE products SET ? WHERE productid=${id}`;
     con.query(sql, order, (err, rslt) => {
       if (err) {
         reject(err);
@@ -47,7 +47,7 @@ export const changeProduct=(id: any, order: any) => {
 
 export const deleteProduct = (id: any) => {
   return new Promise((resolve, reject) => {
-    const sql = `DELETE FROM orders WHERE WHERE productid=${id}`;
+    const sql = `DELETE FROM products WHERE WHERE productid=${id}`;
     con.query(sql, (err, rslt) => {
       if (err) {
         reject(err);
