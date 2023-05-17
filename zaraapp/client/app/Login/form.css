@@ -1,6 +1,6 @@
 .rounded-t-5 {
     border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.6rem;
   }
   
   @media (max-width: 550px) {
