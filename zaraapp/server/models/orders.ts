@@ -11,7 +11,7 @@ export const getAll = () => {
 
 export const getOne = (date: any) => {
   return new Promise((resolve, reject) => {
-    const sql = `SELECT * FROM oredrs WHERE orderid=${date}`;
+    const sql = `SELECT * FROM orders WHERE orderid=${date}`;
     con.query(sql, (err, rslt) => {
       if (err) reject(err);
       else resolve(rslt);
@@ -22,7 +22,7 @@ export const getOne = (date: any) => {
 export const createOrder = (order: any) => {
   return new Promise((resolve, reject) => {
     const sql = "INSERT INTO orders SET ?";
-    con.query(sql, order, (err, result) => {
+    con.query(sql,order,(err, result)=>{
       if (err) {
         reject(err);
       } else {

@@ -3,10 +3,10 @@ import { getAllOrders ,getOneOrder,postOrder,updateOrder,delOrder} from '../cont
 
 const router: Router = express.Router();
 
-router.get('/all',getAllOrders);
+router.get('/',getAllOrders);
 router.get('/:id',getOneOrder);
-router.post('/post',postOrder);
+router.post('/',postOrder);
 router.put('/:id',updateOrder);
-router.delete('/:id')
+router.delete('/:id',delOrder)
 
 export default router;

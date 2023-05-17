@@ -40,9 +40,6 @@ CREATE TABLE IF NOT EXISTS `zara`.`products` (
     REFERENCES `zara`.`orders`(`orderid`)
 );
 
-
--- Table `zara`.`orders`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `zara`.`orders` (
   `orderid` INT NOT NULL AUTO_INCREMENT,
   `orderdate` INT NOT NULL,
@@ -59,5 +56,21 @@ CREATE TABLE IF NOT EXISTS `zara`.`orders` (
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+INSERT INTO `users` (`username`, `userlastname`, `useremail`, `userpw`) 
+VALUES 
+  ('amrou', 'aln', 'amrou@gmail.com', 'password123'),
+  ('sabrine', 'gsr', 'sabrine@gmail.com', 'password456');
 
+  -- Inserting orders
+INSERT INTO `orders` (`orderdate`, `userid`) 
+VALUES 
+  (UNIX_TIMESTAMP(), 1),
+  (UNIX_TIMESTAMP(), 2);
+
+INSERT INTO `products` (`productname`, `productprice`, `productquantity`, `productcolor`, `productcategory`, `productsub-category`, `productsub-sub-category`, `productimage`, `orderid`) 
+VALUES 
+  ('Blazer zara', 10, 5, 'Red', 'Women', 'Blazer', 'oversized', 'image1.jpg', 1),
+  ('Skirt zara', 20, 3, 'Blue', 'Women', 'Skirt', 'mini', 'image2.jpg', 1),
+  ('Jean zara', 15, 2, 'Green', 'Men', 'Jeans', 'slim', 'image3.jpg', 2),
+  ('T-shirt zara', 25, 4, 'Yellow', 'Men','T-shirts', 'sleevless',  'image4.jpg', 2);
 
