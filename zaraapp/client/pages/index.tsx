@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function App() {
+export default function App() {
   const [backgroundImage, setBackgroundImage] = useState("");
   const [slideDirection, setSlideDirection] = useState(1); 
   const slideInterval = 3000; 
@@ -59,11 +59,9 @@ function App() {
   };
 
   return (
-    <div>
-      <div className="App" style={appStyle}></div>
-    
-    </div>
-  );
+    <>
+    </>
+  )
 }
 
 export default App;
