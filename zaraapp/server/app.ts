@@ -2,6 +2,7 @@ import express, { Express, json, urlencoded } from 'express';
 import cors from 'cors';
 import routerUser from "./routes/users"
 import routeOrder from '../server/routes/orders'
+import routeProd from '../server/routes/products'
 const app: Express = express();
 
 app.use(cors());
@@ -11,6 +12,7 @@ app.use(urlencoded({ extended: true }));
 
 app.use('/api/orders',routeOrder)
 app.use("/api/user", routerUser)
+app.use("/api/user", routeProd)
 // use path for controller methods
 
 export default app;

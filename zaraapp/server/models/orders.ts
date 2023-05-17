@@ -22,7 +22,7 @@ export const getOne = (date: any) => {
 export const createOrder = (order: any) => {
   return new Promise((resolve, reject) => {
     const sql = "INSERT INTO orders SET ?";
-    con.query(sql, order, (err, result) => {
+    con.query(sql,order,(err, result)=>{
       if (err) {
         reject(err);
       } else {
