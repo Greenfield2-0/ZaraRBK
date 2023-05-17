@@ -1,8 +1,14 @@
+
+import React , {useEffect , useState} from "react"
+
+
 const Search = () => {
+
+
 
 return (
 
-    <p>  </p>
+    <div>hi</div>
 )
 
 }
