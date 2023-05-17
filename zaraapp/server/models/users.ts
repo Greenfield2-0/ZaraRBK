@@ -28,6 +28,13 @@ const db = {
       callback(err, result);
     });
   },
+  oneOrderId(username: string ,callback: (error: Error | null, result: any) => void){
+    const sql = `SELECT o.orderid FROM zara.users AS u JOIN zara.orders AS o ON u.userid = o.userid WHERE u.username = "${username}"; `
+    connection.query(sql, function (err, result) {
+      callback(err, result)
+    })
+  }
 };
+
 
 export default db;

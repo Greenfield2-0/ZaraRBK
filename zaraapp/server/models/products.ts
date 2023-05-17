@@ -8,6 +8,16 @@ export const getAll = () => {
     });
   });
 };
+export const getOne = (prod:any) => {
+  return new Promise((resolve, reject) => {
+    const sql = `SELECT * FROM products WHERE productname LIKE '${prod}'`;
+    con.query(sql, (err, rslt) => {
+      if (err) reject(err);
+      else resolve(rslt);
+    });
+  });
+};
+
 
 export const getAllWithOrder = (id: any) => {
   return new Promise((resolve, reject) => {

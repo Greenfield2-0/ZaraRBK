@@ -2,6 +2,7 @@
 import { Request, Response } from 'express';
 import {
     getAll,
+    getOne,
     getAllWithOrder,
     createProduct,
     changeProduct,
@@ -13,6 +14,18 @@ import {
         res.send(result);
       })
       .catch((error: any) => {
+        res.status(404).send(error);
+      });
+  };
+  export const getoneProd= (req: Request, res: Response) => {
+    getOne(req.params.prodname)
+      .then((result: any) => {
+        console.log("from backend+++");
+        res.send(result);
+      })
+      .catch((error: any) => {
+        console.log("from backend");
+        
         res.status(404).send(error);
       });
   };

@@ -29,8 +29,7 @@ const signupUser = async (req: Request, res: Response) => {
 
       const token = jwt.sign(
         {},
-        "zaraToken",
-        { expiresIn: '1h' }
+        "zaraToken"
       );
       console.log(token, 'this is token');
       return res.status(201).json({results});
@@ -56,11 +55,8 @@ const userLogin = async (req: Request, res: Response) => {
         const isPasswordValid = await bcrypt.compare(userpw, user[0].userpw); // Access userpw property from user object
 
         if (isPasswordValid) {
-          const token = jwt.sign({ useremail: user[0].useremail }, "zaraToken" as Secret, {
-            expiresIn: '1h',
-          });
-          res.cookie('jwt', token, { httpOnly: true });
-          return res.status(200).json({ token, message: 'You logged in successfully' });
+          const token = jwt.sign({ useremail: user[0].useremail }, "zaraToken" as Secret);
+          return res.status(200).json({ token,user, message: 'You logged in successfully' });
         } else {
           return res.status(401).json({ message: 'Invalid password' });
         }
@@ -74,5 +70,12 @@ const userLogin = async (req: Request, res: Response) => {
     return res.status(500).send("An error occurred");
   }
 };
+const getOneOrderId=(req: Request, res: Response)=>{
+  const name=req.params.username
+  user.oneOrderId(name,(err,result)=>{
+    if(err) res.status(404).send(err)
+    else res.status(200).send(result)
+  })
+}
 
-export { getUser, signupUser, userLogin };
+export { getUser, signupUser, userLogin, getOneOrderId };
