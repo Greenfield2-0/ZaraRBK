@@ -11,8 +11,8 @@ app.use(urlencoded({ extended: true }));
 // Import products route
 
 app.use('/api/orders',routeOrder)
-app.use("/api/user", routerUser)
-app.use("/api/user", routeProd)
+app.use("/api/user",routerUser)
+app.use("/api/products",routeProd)
 // use path for controller methods
 
 export default app;
