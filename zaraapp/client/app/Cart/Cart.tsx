@@ -1,25 +1,31 @@
 import React from 'react'
 import axios from 'axios'
 import { useState ,useEffect} from 'react'
+import CartDetail from '../CartDetail/CartDetail';
 
 function Cart() {
- const[data,setData]=useState([]);
- const user=getItem();
- let orderid;
- const getOrderId=axios.get(`http://localhost:3000/api/user/one/${user.username}`)
+ const[prod,setProd]=useState([]);
+ const user=localStorage.getItem("");
+ interface Product {
+  id: number;
+  name: string;
+  price: number;
+}
+ let orderid: number | undefined;
+ const getOrderId=()=>(axios.get(`http://localhost:3000/api/user/one/${user.username}`)
  .then((res) => {
    console.log(res)
    orderid=res.data[0].orderid
  })
  .catch((err) => {
    console.log(err);
- });
+ }));
 
  const fetchData=(id:any)=>{
    axios.get(`http://localhost:3000/api/products/${id}`)
     .then((res) => {
-      setData(res.data)
-      console.log(data)
+      setProd(res.data)
+      console.log(prod)
     })
     .catch((err) => {
       console.log(err);
@@ -27,12 +33,13 @@ function Cart() {
 };
 useEffect(() => {
   fetchData(orderid)
+  getOrderId()
 });
  
   return (
-     data.map((prod)=>(
+     prod.map((e:any)=>(
       <>
-      <CartDetail prod={prod}/>
+      <CartDetail e={e}/>
       </>
      ))
 
