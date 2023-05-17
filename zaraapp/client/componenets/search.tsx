@@ -2,7 +2,7 @@ const Search = () => {
 
 return (
 
-    <p> hi </p>
+    <p>  </p>
 )
 
 }
