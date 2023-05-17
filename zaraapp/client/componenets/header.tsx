@@ -22,14 +22,16 @@ const Header: FC = () => {
 
               />
             </div>
-            <div>
-              <img
-                src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg"
-                alt="Zara_Logo"
-                id="logo"
-                style={{ width: '212px' }}
-              />
-            </div>
+            {isMenuOpen ? null : (
+              <div>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg"
+                  alt="Zara_Logo"
+                  id="logo"
+                  style={{ width: '212px' }}
+                />
+              </div>
+            )}
           </div>
           <div id="headerRight" style={{ width: '30%', display: 'flex', marginRight: '30px', padding: '10px', justifyContent: 'space-between' }}>
             <div id="headerRightLeft">
@@ -55,12 +57,11 @@ const Header: FC = () => {
       <div id="menuModal" className
 ="menuOpacity animatedMenuShow">
 <div className="menuContent">
-<header id="menuHeader" style={{ backgroundColor: 'white', position: 'fixed', width: 'max-content' }}>
-<div id="menuTop">
+<header id="headerRight" style={{ width: '30%', display: 'flex', marginRight: '30px', padding: '10px', justifyContent: 'space-between' }}><div id="menuTop">
 
-<button className="close" onClick={() => setMenuOpen(false)}>
+ <ul className="close" onClick={() => setMenuOpen(false)}>
 ×
-</button>
+</ul>
 <ul>
 <li id="selected">WOMAN</li>
 <li>MAN</li>
