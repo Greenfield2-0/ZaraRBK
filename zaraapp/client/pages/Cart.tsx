@@ -4,20 +4,19 @@ import { useState ,useEffect} from 'react'
 
 function Cart() {
  const[data,setData]=useState([]);
- const[order,setOrder]=useState([])
  const user=getItem();
- const orderid=
- axios.get(`http://localhost:3000/api/products/${user.username}`)
+ let orderid;
+ const getOrderId=axios.get(`http://localhost:3000/api/user/one/${user.username}`)
  .then((res) => {
-   setData(res.data)
-   console.log(data)
+   console.log(res)
+   orderid=res.data[0].orderid
  })
  .catch((err) => {
    console.log(err);
  });
 
- const fetchData=(orderid:any)=>{
-   axios.get(`http://localhost:3000/api/products/${orderid}`)
+ const fetchData=(id:any)=>{
+   axios.get(`http://localhost:3000/api/products/${id}`)
     .then((res) => {
       setData(res.data)
       console.log(data)
@@ -27,7 +26,7 @@ function Cart() {
     });
 };
 useEffect(() => {
-  fetchData()
+  fetchData(orderid)
 });
  
   return (
