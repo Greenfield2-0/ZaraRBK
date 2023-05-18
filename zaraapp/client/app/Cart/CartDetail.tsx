@@ -9,13 +9,13 @@ function CartDetail({e}:any) {
     <div className="sm-col sm-col-6 bg-gray border border-white rounded">
       <img
         className="block fit mx-auto"
-        src="https://static.zara.net/photos///2023/V/0/1/p/3519/022/104/2/w/296/3519022104_2_1_1.jpg?ts=1673950705136"
+        src={e.productimage}
       />
     </div>
     <div>
-       <h1>{e.productname}</h1> 
-       <h1>{e.productprice}</h1> 
-       <h1>{e.productcolor}</h1>   
+       <h3>{e.productname}</h3> 
+       <h3>{e.productprice}</h3> 
+       <h3>{e.productcolor}</h3>   
     </div>
     <div className="sm-col sm-col-6">
       <div className="details p2">
