@@ -3,7 +3,8 @@
     /* border: 1px solid red; */
     display: flex;
     margin: 5%;
-    height: 60%
+    height: 60%;
+    margin-top: 40px;
   }
   input{
     width: 80%;
