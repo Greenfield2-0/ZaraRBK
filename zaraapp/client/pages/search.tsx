@@ -1,29 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from 'axios';
 
 const Search = () => {
-  const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
+  
+  const fetchData = () => { 
+    axios.get(`http://localhost:5000/api/products/one/${search}`)
+      .then(response => {
+        console.log(response.data);
+      })
+      .catch(error => {
 
-  const fetchData = () => {
-    axios.get("http://localhost:5000/api/products")
-      .then((res) => {
-        setData(res.data)
-       
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+        console.error(error);
+      });
   };
 
-  useEffect(() => {
-    fetchData()
   
-    
-  }, []);
-
-  { console.log(data)}
-
-
+  const handleSearch = () => {
+    fetchData();
+  };
+  
+  return (
+    <div>
+<input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
+      <button onClick={handleSearch}>Search</button>
+    </div>
+  );
 };
 
 export default Search;
+

@@ -20,9 +20,12 @@ import {
   export const getoneProd= (req: Request, res: Response) => {
     getOne(req.params.prodname)
       .then((result: any) => {
+        console.log("from backend+++");
         res.send(result);
       })
       .catch((error: any) => {
+        console.log("from backend");
+        
         res.status(404).send(error);
       });
   };
