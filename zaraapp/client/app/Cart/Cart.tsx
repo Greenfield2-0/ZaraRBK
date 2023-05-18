@@ -27,8 +27,10 @@ const Cart: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const storedData = window.localStorage.getItem('User');
+    console.log(storedData,'mystored')
     if (storedData) {
       const parsedData: UserData = JSON.parse(storedData);
+      console.log(parsedData,'my local')
       const username = parsedData.user?.[0].username;
       axios.get(`http://localhost:3000/api/user/one/${username}`)
         .then((res) => {

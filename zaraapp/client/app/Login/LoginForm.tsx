@@ -44,10 +44,9 @@ const LoginForm: React.FC<LoginFormProps> = () => {
 
 
     localStorage.setItem('token',  response.data.token);
-    setName(response.data.user.username);
       setError('Authentication successful')
+      window.location.href='/'
       // window.location.href = '/';
-      console.log(username)
     } catch (err:any) {
       console.log(err.response.data);
       setError(err.response.data)
