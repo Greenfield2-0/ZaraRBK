@@ -1,8 +1,22 @@
 import React, { useState, useEffect } from "react";
+// import { Box, Image, Text } from '@chakra-ui/react'
+import axios from "axios";
+
 export default function App() {
   const [backgroundImage, setBackgroundImage] = useState("");
   const [slideDirection, setSlideDirection] = useState(1); 
   const slideInterval = 3000; 
+
+
+
+
+
+
+
+
+
+
+
 
   const images = [
     "https://static.zara.net/photos///contents/mkt/spots/ss23-north-woman-dresses/subhome-xmedia-20//w/1920/IMAGE-landscape-fill-07b13c36-46b1-440b-84a8-e3af731690ef-default_0.jpg?ts=1684086767489%27",
@@ -62,4 +76,6 @@ export default function App() {
 
     </div>
   );
+
+  
 }
