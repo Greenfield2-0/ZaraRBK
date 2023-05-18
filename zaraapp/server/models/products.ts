@@ -17,6 +17,40 @@ export const getOne = (prod:any) => {
     });
   });
 };
+//get products by category
+export const getOneCategory = (prod:any) => {
+  return new Promise((resolve, reject) => {
+    const sql = `SELECT * FROM products WHERE productcategory LIKE '${prod}'`;
+    con.query(sql, (err, rslt) => {
+      if (err) reject(err);
+      else resolve(rslt);
+    });
+  });
+};
+//get products by subcategory
+export const getOneSubCategory = (prod: any) => {
+  return new Promise((resolve, reject) => {
+    const sql = `SELECT * FROM products WHERE \`productsub-category\` LIKE '${prod}'`;
+    con.query(sql, (err, rslt) => {
+      if (err) reject(err);
+      else resolve(rslt);
+    });
+  });
+};
+
+
+
+//get products by subSubcategory
+export const getOneSubSubCategory = (prod:any) => {
+  return new Promise((resolve, reject) => {
+    const sql = `SELECT * FROM products WHERE \`productsub-sub-category\` LIKE '${prod}'`;
+    con.query(sql, (err, rslt) => {
+      if (err) reject(err);
+      else resolve(rslt);
+    });
+  });
+};
+
 
 
 export const getAllWithOrder = (id: any) => {

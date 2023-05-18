@@ -3,6 +3,9 @@ import { Request, Response } from 'express';
 import {
     getAll,
     getOne,
+    getOneCategory,
+    getOneSubCategory,
+    getOneSubSubCategory,
     getAllWithOrder,
     createProduct,
     changeProduct,
@@ -20,12 +23,37 @@ import {
   export const getoneProd= (req: Request, res: Response) => {
     getOne(req.params.prodname)
       .then((result: any) => {
-        console.log("from backend+++");
         res.send(result);
       })
       .catch((error: any) => {
-        console.log("from backend");
         
+        res.status(404).send(error);
+      });
+  };
+  export const getCat= (req: Request, res: Response) => {
+    getOneCategory(req.params.prodcat)
+      .then((result: any) => {
+        res.send(result);
+      })
+      .catch((error: any) => { 
+        res.status(404).send(error);
+      });
+  };
+  export const getSub= (req: Request, res: Response) => {
+    getOneSubCategory(req.params.prodsub)
+      .then((result: any) => {
+        res.send(result);
+      })
+      .catch((error: any) => {    
+        res.status(404).send(error);
+      });
+  };
+  export const getSubSub= (req: Request, res: Response) => {
+    getOneSubSubCategory(req.params.prodsubsub)
+      .then((result: any) => {
+        res.send(result);
+      })
+      .catch((error: any) => {  
         res.status(404).send(error);
       });
   };
