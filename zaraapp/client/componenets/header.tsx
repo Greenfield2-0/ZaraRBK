@@ -3,10 +3,12 @@ import '@/styles/ff.module.css';
 import Image from 'next/image'
 import axios from 'axios';
 import Link from 'next/link';
+import Woman from '../app/Woman/page.tsx'
 const Header: FC = () => {
 
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [data , setData] = useState([])
+  const [data , setData] = useState([]);
+  const [isLoaded , setIsLoaded] = useState(false);
 
   const fetchData = () => { 
    axios.get('http://localhost:5000/api/products/')
@@ -64,7 +66,7 @@ fetchData()
             </div>
             <div id="headerRightRight">
            
-  <Link href="/login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
+  <Link href="/Login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
     LOG IN
  
 </Link>
@@ -98,23 +100,15 @@ fetchData()
             
 
   <div style={{ marginTop: "90px", display: 'flex', flexWrap: 'wrap' , marginBottom : '25px' }}>
-    <p className="menuOption" id="selected" style={{ marginRight: '10px' }}> WOMAN</p>
+    <p className="menuOption" style={{ marginRight: '10px' }} onClick={()=>setIsLoaded(!isLoaded)} >WOMAN</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>MAN</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>KIDS</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>BEAUTY</p>
   </div>
-
-
-               <li className="menuOption">NEW</li>
-               <li className="menuOption">LINEN</li>
-               <li className="menuOption">BEST SELLERS</li>
-               <li className="menuOption"><a href="./Shoes.html">SHOES</a></li>
-               <li className="menuOption">BAGS</li>
-               <li className="menuOption">SWIMWEAR</li>
-               <li className="menuOption">ACCESSORIES</li>
-               <li className="menuOption">PERFUMES</li>
-               <li className="menuOption">LIME GLAM</li>
-               <li className="menuOption">S P E C I A L E D I T I O N</li>
+{isLoaded ? 
+               <div className="menuOption"><Woman/></div>
+  : <div></div>
+}
              </ul>
            </div>
            <div id="menuExtraOptions">
