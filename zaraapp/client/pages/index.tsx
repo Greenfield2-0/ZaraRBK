@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 export default function App() {
   const [backgroundImage, setBackgroundImage] = useState("");
   const [slideDirection, setSlideDirection] = useState(1); 
@@ -64,4 +63,3 @@ export default function App() {
   )
 }
 
-export default App;

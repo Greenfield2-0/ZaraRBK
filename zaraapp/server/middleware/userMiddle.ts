@@ -1,9 +1,6 @@
 import { Request, Response,NextFunction } from 'express';
 import jwt, {  Secret } from "jsonwebtoken"
 
-
-
-
 function authenticate(req: Request, res: Response, next: NextFunction) {
     try {
       const authHeader = req.body.authorization;
