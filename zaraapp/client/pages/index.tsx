@@ -58,8 +58,9 @@ export default function App() {
   };
 
   return (
-    <>
-    </>
+    <div>
+      <div className="App" style={appStyle} ></div>
+    </div>
   )
 }
 
