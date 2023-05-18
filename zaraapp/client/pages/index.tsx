@@ -57,11 +57,10 @@ export default function App() {
     justifyContent: "center",
     animation: "slideIn 1s ease-in-out infinite alternate",
   };
-
   return (
-    <>
-    </>
-  )
-}
+    <div>
+      <div className="App" style={appStyle} ></div>
 
-export default App;
+    </div>
+  );
+}
