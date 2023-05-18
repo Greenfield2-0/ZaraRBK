@@ -112,8 +112,7 @@ fetchData()
   </div>
 
 
-               <li className="menuOption">NEW</li>
-               
+               <li className="menuOption">NEW</li> 
            {display ? <li className="menuOption"><Men/></li>:<></>}
                   
              </ul>
