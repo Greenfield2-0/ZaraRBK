@@ -92,14 +92,13 @@ fetchData()
 
             
 
-             {data.map((elem) => (
   <div style={{ marginTop: "90px", display: 'flex', flexWrap: 'wrap' , marginBottom : '25px' }}>
-    <p className="menuOption" id="selected" style={{ marginRight: '10px' }}>{elem.productcategory}</p>
+    <p className="menuOption" id="selected" style={{ marginRight: '10px' }}> WOMAN</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>MAN</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>KIDS</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>BEAUTY</p>
   </div>
-))}
+
 
                <li className="menuOption">NEW</li>
                <li className="menuOption">LINEN</li>

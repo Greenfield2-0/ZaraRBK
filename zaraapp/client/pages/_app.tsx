@@ -1,8 +1,7 @@
-import Header from '@/componenets/header'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Home from './index'
-import Search from '@/app/search/search'
+import Header from '@/componenets/header'
 export default function App({ Component, pageProps }: AppProps) {
 
 
@@ -11,8 +10,7 @@ export default function App({ Component, pageProps }: AppProps) {
   <>
   
   
-  <Header/>
- 
+ <Header/>
   <Component {...pageProps} /> 
   
   </>

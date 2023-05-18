@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import { Box, Image, Text } from '@chakra-ui/react'
-import axios from "axios";export default function App() {
+import axios from "axios";
+
+export default function App() {
   const [backgroundImage, setBackgroundImage] = useState("");
   const [slideDirection, setSlideDirection] = useState(1); 
   const slideInterval = 3000; 
