@@ -69,7 +69,8 @@ VALUES
 
 INSERT INTO `products` (`productname`, `productprice`, `productquantity`, `productcolor`, `productcategory`, `productsub-category`, `productsub-sub-category`, `productimage`, `orderid`) 
 VALUES 
-  ('Blazer zara', 10, 5, 'Red', 'Women', 'Blazer', 'oversized', 'image1.jpg', 1),
+  ('SHAWL LAPEL BLAZER', 299, 10, 'BLACK', 'WOMAN', 'BLAZER', 'OVERSIZE', 'https://static.zara.net/photos///2023/V/0/1/p/2761/240/800/15/w/730/2761240800_2_1_1.jpg?ts=1672608969680', 1),
+  ('LONG DOUBLE-BREASTED BLAZER',299,3,'WHITE','WOMAN','BLAZER','DOUBLE-BREASTED','https://static.zara.net/photos///2023/V/0/1/p/2422/724/406/2/w/750/2422724406_1_1_1.jpg?ts=1679329374642',2),
   ('Skirt zara', 20, 3, 'Blue', 'Women', 'Skirt', 'mini', 'image2.jpg', 1),
   ('Jean zara', 15, 2, 'Green', 'Men', 'Jeans', 'slim', 'image3.jpg', 2),
   ('T-shirt zara', 25, 4, 'Yellow', 'Men','T-shirts', 'sleevless',  'image4.jpg', 2);
