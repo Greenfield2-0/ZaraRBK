@@ -71,7 +71,8 @@ INSERT INTO `products` (`productname`, `productprice`, `productquantity`, `produ
 VALUES 
   ('SHAWL LAPEL BLAZER', 299, 10, 'BLACK', 'WOMAN', 'BLAZER', 'OVERSIZE', 'https://static.zara.net/photos///2023/V/0/1/p/2761/240/800/15/w/730/2761240800_2_1_1.jpg?ts=1672608969680', 1),
   ('LONG DOUBLE-BREASTED BLAZER',299,3,'WHITE','WOMAN','BLAZER','DOUBLE-BREASTED','https://static.zara.net/photos///2023/V/0/1/p/2422/724/406/2/w/750/2422724406_1_1_1.jpg?ts=1679329374642',2),
-  ('Skirt zara', 20, 3, 'Blue', 'Women', 'Skirt', 'mini', 'image2.jpg', 1),
+  ('RIBBED STRAPPY VEST TOP', 36, 14, 'STRIPED', 'WOMAN', 'T-SHIRT', 'RIBBED', 'https://static.zara.net/photos///2023/V/0/1/p/3253/306/104/2/w/730/3253306104_1_1_1.jpg?ts=1677146757733', 1),
+  ('RIBBED COTTON T-SHIRT',46,6,'BLACK','WOMAN','T-SHIRT','BASICS','https://static.zara.net/photos///2023/V/0/1/p/4424/157/800/2/w/273/4424157800_6_20_1.jpg?ts=1676620877440',1),  
   ('Jean zara', 15, 2, 'Green', 'Men', 'Jeans', 'slim', 'image3.jpg', 2),
   ('T-shirt zara', 25, 4, 'Yellow', 'Men','T-shirts', 'sleevless',  'image4.jpg', 2);
 
