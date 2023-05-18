@@ -31,11 +31,12 @@ const SignupForm: React.FC = () => {
   return (
     < div>
   
-       <h2 className='headingform'>PERSONAL DETAILS</h2>
           <div className='changeform-btn'>
        </div>
      <h1>{error}</h1>
+     <h2 className='headingform'>PERSONAL DETAILS</h2>
         <div className='container'>
+
           <div className='Left-form'> 
          <div className='input-text-box'></div>
          <input    className="input-text"type="text" id="fname" name="email" placeholder='E-MAIL'  value={useremail} onChange={(e) => setEmail(e.target.value)} />
@@ -71,8 +72,8 @@ const SignupForm: React.FC = () => {
 <div className='input-text-box'>
       <h1 className='dot'>.</h1>
   </div>
-<div className='input-text-box'>
-      <input type="password" id="fname" name="fname" value={confirmuserpw} placeholder='REPEATE PASSWORD'onChange={(e) => setConfirmPassword(e.target.value)}/>
+<div className='input-text-box1'>
+      <input type="password" id="fname" name="fname" value={confirmuserpw} placeholder='REPEAT PASSWORD'onChange={(e) => setConfirmPassword(e.target.value)}/>
   </div>
 
  

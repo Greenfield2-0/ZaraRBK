@@ -2,6 +2,7 @@
 import React from 'react'
 
 function CartDetail({e}:any) {
+  console.log('heelo from detail')
   return (
     <div className="product bg-white m2">
   <div className="clearfix rounded overflow-hidden">

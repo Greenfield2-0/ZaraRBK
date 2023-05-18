@@ -15,43 +15,42 @@ const LoginForm: React.FC<LoginFormProps> = () => {
   const [username,setName]=useState('LOG IN')
 
 
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   const user = {
-  //     useremail,
-  //     userpw,
-  //   };
-  //   const res = await axios.post('http://localhost:5000/api/user/login', user, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
-  //   window.localStorage.setItem('User', JSON.stringify(res.data));
-  //   setName(res.data.user.username)
-  //   // const a=  window.localStorage.getItem('User');
-  //   // console.log(a);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const user = {
+      useremail,
+      userpw,
+    };
+    const res = await axios.post('http://localhost:5000/api/user/login', user, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    window.localStorage.setItem('User', JSON.stringify(res.data));
+    setError('Authentication successful')
+    window.location.href = '/';
+    // const a=  window.localStorage.getItem('User');
+    // console.log(a);
 
    
-  // };
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/api/user/login', {
-        useremail: useremail,
-        userpw: userpw
-      });
-
-      const token = response.data.token;
-
-
-    localStorage.setItem('token',  response.data.token);
-      setError('Authentication successful')
-      window.location.href='/'
-      // window.location.href = '/';
-    } catch (err:any) {
-      console.log(err.response.data);
-      setError(err.response.data)
-    }
   };
+  // const handleSubmit = async () => {
+  //   try {
+  //     const response = await axios.post('http://localhost:5000/api/user/login', {
+  //       useremail: useremail,
+  //       userpw: userpw
+  //     })
+
+
+  //   window.localStorage.setItem('User',  JSON.stringify(res.data));
+  //     setError('Authentication successful')
+  //     // window.location.href = '/';
+  
+  //   } catch (err:any) {
+  //     console.log(err.response.data);
+  //     setError(err.response.data)
+  //   }
+  // };
   
 
   return (

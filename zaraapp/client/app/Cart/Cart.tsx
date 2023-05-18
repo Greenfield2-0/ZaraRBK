@@ -27,12 +27,11 @@ const Cart: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const storedData = window.localStorage.getItem('User');
-    console.log(storedData,'mystored')
     if (storedData) {
       const parsedData: UserData = JSON.parse(storedData);
-      console.log(parsedData,'my local')
+      console.log(storedData,'hh')
       const username = parsedData.user?.[0].username;
-      axios.get(`http://localhost:3000/api/user/one/${username}`)
+      axios.get(`http://localhost:5000/api/user/one/${username}`)
         .then((res) => {
           console.log(res);
           setOrderId(res.data[0].orderid);
@@ -43,7 +42,7 @@ const Cart: React.FC = (): JSX.Element => {
     }
   }, []);
   const fetchData = (id: number | undefined) => {
-    axios.get(`http://localhost:3000/api/products/${id}`)
+    axios.get(`http://localhost:5000/api/products/${id}`)
       .then((res) => {
         setProd(res.data);
         console.log(res.data,'product');
