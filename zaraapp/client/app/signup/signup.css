@@ -3,104 +3,89 @@
     border-bottom-left-radius: 0.5rem;
   }
   
-  @media (max-width: 550px) {
+@media (max-width: 550px) {
     .rounded-tr-lg-0 {
-      border-top-right-radius: 0.5rem;
-      border-bottom-left-radius: 0rem;
+        border-top-right-radius: 0.5rem;
+        border-bottom-left-radius: 0rem;
     }
-  }
+}
 
-#login-container {
+input#form1 {
+    width: 29.482vw;
+}
+
+#signup-container {
     margin: 0;
     margin-top: 2rem;
     padding: 0;
 }
 
-#login-card {
+#signup-card {
     border: none;
-    width: 30vw;
+    width: 40vw;
     display: flex;
     justify-self: flex-start;
 }
 
-#login-page {
+#signup-page {
     font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-color: white;
     margin-top: 9rem;
     margin-left: 5rem;
 }
 
-#login-page h1 {
-    margin-left: 0.03em;
+#signup-page h1 {
+    margin-left: 1.27em;
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 550;
 }
 
-#login-page input {
+#signup-page input {
     border: none;
     border-radius: 0;
     border-bottom: 1px solid gray;
-    width: 130%;
 }
 
-#login-page input:focus {
+#signup-page input:focus {
     outline: none;
     box-shadow: none;
 }
 
-#card-body {
+.card-body {
     padding: 0;
 }
 
-#login-page input::placeholder {
+#signup-page input::placeholder {
     font-size: 10px;
 }
 
-button.login-btn {
+button.signup-btn {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     background-color: black;
     border-radius: 0;
     border: none;
     width: 20vw;
 }
 
-button.login-btn:hover {
+button.signup-btn:hover {
     background-color: rgb(41, 41, 41);
     border-radius: 0;
     border: none;
 }
 
-#login-card a {
+#signup-card a {
     text-decoration: none;
     font-size: 10px;
     color: gray;
 }
 
-#need-account {
-    width: 56vw;
-    /* background: red; */
+.dbl-input .pw-input:last-of-type {
+    margin-left: 2rem
 }
 
-#need-account h3 {
-    margin-left: 1em;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 550;
-}
-
-button#register-btn {
-    width: 29vw;
-    margin-top: 2rem;
-    background: white;
-    border: 1px solid black;
-    color: rgb(77, 77, 77);
-    border-radius: 0;
-}
-
-button#register-btn:hover {
-    width: 29vw;
-    margin-top: 2rem;
-    background: white;
-    border: 1px solid rgb(77, 77, 77);
-    border-radius: 0;
+.input {
+    width: 30%;
 }
