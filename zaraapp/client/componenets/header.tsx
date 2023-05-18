@@ -1,10 +1,33 @@
 import React, { FC , useState , useEffect , useRef} from 'react';
 import '@/styles/ff.module.css';
 import Image from 'next/image'
-
+import axios from 'axios';
+import Link from 'next/link';
 const Header: FC = () => {
 
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [data , setData] = useState([])
+
+  const fetchData = () => { 
+   axios.get('http://localhost:5000/api/products/')
+     .then(response => {
+    setData(response.data)
+     
+       
+     })
+     .catch(error => {
+
+       console.error(error);
+     });
+ };
+
+
+
+useEffect(()=> {
+fetchData()
+},[])
+
+
 
   return (
     <>
@@ -23,26 +46,30 @@ const Header: FC = () => {
               />
             </div>
             {isMenuOpen ? null : (
-              <div>
+              <Link  href = "/">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg"
                   alt="Zara_Logo"
                   id="logo"
                   style={{ width: '212px' }}
                 />
-              </div>
+              </Link>
             )}
           </div>
           <div id="headerRight" style={{ width: '30%', display: 'flex', marginRight: '30px', padding: '10px', justifyContent: 'space-between' }}>
             <div id="headerRightLeft">
-              <a href="" style={{ padding: '0% 60% 0% 0%', fontSize: '13px', textDecoration: 'none', borderBottom: '1px solid black', color: 'rgb(41, 41, 41)', fontWeight: 700, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
+              <Link href="/search" style={{ padding: '0% 60% 0% 0%', fontSize: '13px', textDecoration: 'none', borderBottom: '1px solid black', color: 'rgb(41, 41, 41)', fontWeight: 700, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
                 SEARCH
-              </a>
+              </Link>
             </div>
             <div id="headerRightRight">
-              <a href="./Login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
-                LOG IN
-              </a>
+           
+  <Link href="/login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
+    LOG IN
+ 
+</Link>
+
+
               <a href="" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
                 HELP
               </a>
@@ -54,46 +81,52 @@ const Header: FC = () => {
         </div>
       </header>
       {isMenuOpen && (
-      <div id="menuModal" className
-="menuOpacity animatedMenuShow">
-<div className="menuContent">
-<header id="headerRight" style={{ width: '30%', display: 'flex', marginRight: '30px', padding: '10px', justifyContent: 'space-between' }}><div id="menuTop">
+       <div id="menuModal" className="menuOpacity animatedMenuShow">
+       <div className="menuContent">
+         <header id="headerRight" style={{ width: '1000%', display: 'flex', marginRight: '30px', padding: '10px', justifyContent: 'space-between' }}>
+           <div id="menuTop">
+          
+           </div>
+         </header>
+         <div id="menuOptions" style={{ position: 'fixed', overflow: 'hidden', height: '1000px', width: '500px', backgroundColor: 'white'  , marginTop : "-20px"}}>
+           <div id="menuMainOptions" style={{ display: 'flex'  }}>
+             <ul className="menuOptionsList">
+             <ul className="close" onClick={() => setMenuOpen(false)}>
+               ×
+             </ul>
 
- <ul className="close" onClick={() => setMenuOpen(false)}>
-×
-</ul>
-<ul>
-<li id="selected">WOMAN</li>
-<li>MAN</li>
-<li>KIDS</li>
-</ul>
-</div>
-</header>
-<div id="emptySpace" style={{ height: '100px', width: '341.25px', backgroundColor: 'white' }}></div>
-<div id="menuOptions" style={{ position: 'fixed', overflow: 'hidden', maxHeight: '380px', width: '341.25px', backgroundColor: 'white' }}>
-<div id="menuMainOptions">
-<ul>
-<li>NEW</li>
-<li>LINEN</li>
-<li>BEST SELLERS</li>
-<li><a href="./Shoes.html">SHOES</a></li>
-<li>BAGS</li>
-<li>SWIMWEAR</li>
-<li>ACCESSORIES</li>
-<li>PERFUMES</li>
-<li>LIME GLAM</li>
-<li>S P E C I A L E D I T I O N</li>
-</ul>
-</div>
-<div id="menuExtraOptions">
-<ul>
-<li>JOIN LIFE</li>
-<li>+ INFO</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+            
+
+  <div style={{ marginTop: "90px", display: 'flex', flexWrap: 'wrap' , marginBottom : '25px' }}>
+    <p className="menuOption" id="selected" style={{ marginRight: '10px' }}> WOMAN</p>
+    <p className="menuOption" style={{ marginRight: '10px' }}>MAN</p>
+    <p className="menuOption" style={{ marginRight: '10px' }}>KIDS</p>
+    <p className="menuOption" style={{ marginRight: '10px' }}>BEAUTY</p>
+  </div>
+
+
+               <li className="menuOption">NEW</li>
+               <li className="menuOption">LINEN</li>
+               <li className="menuOption">BEST SELLERS</li>
+               <li className="menuOption"><a href="./Shoes.html">SHOES</a></li>
+               <li className="menuOption">BAGS</li>
+               <li className="menuOption">SWIMWEAR</li>
+               <li className="menuOption">ACCESSORIES</li>
+               <li className="menuOption">PERFUMES</li>
+               <li className="menuOption">LIME GLAM</li>
+               <li className="menuOption">S P E C I A L E D I T I O N</li>
+             </ul>
+           </div>
+           <div id="menuExtraOptions">
+             <ul>
+               <li>JOIN LIFE</li>
+               <li>+ INFO</li>
+             </ul>
+           </div>
+         </div>
+       </div>
+     </div>
+
       ) }
 
 
@@ -107,3 +140,6 @@ const Header: FC = () => {
 };
 
 export default Header;
+
+
+
