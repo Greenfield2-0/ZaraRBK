@@ -2,6 +2,7 @@
 import { Request, Response } from 'express';
 import {
     getAll,
+    getOne,
     getAllWithOrder,
     createProduct,
     changeProduct,
@@ -9,6 +10,15 @@ import {
   } from '../models/products';
   export const getAllProd= (req: Request, res: Response) => {
     getAll()
+      .then((result: any) => {
+        res.send(result);
+      })
+      .catch((error: any) => {
+        res.status(404).send(error);
+      });
+  };
+  export const getoneProd= (req: Request, res: Response) => {
+    getOne(req.params.prodname)
       .then((result: any) => {
         res.send(result);
       })
