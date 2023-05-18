@@ -1,91 +1,101 @@
-.rounded-t-5 {
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-  }
-  
-@media (max-width: 550px) {
-    .rounded-tr-lg-0 {
-        border-top-right-radius: 0.5rem;
-        border-bottom-left-radius: 0rem;
-    }
-}
-
-input#form1 {
-    width: 29.482vw;
-}
-
-#signup-container {
-    margin: 0;
-    margin-top: 2rem;
-    padding: 0;
-}
-
-#signup-card {
-    border: none;
-    width: 40vw;
+.container{
+    width: 100%;
+    /* border: 1px solid red; */
     display: flex;
-    justify-self: flex-start;
-}
-
-#signup-page {
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    background-color: white;
-    margin-top: 9rem;
-    margin-left: 5rem;
-}
-
-#signup-page h1 {
-    margin-left: 1.27em;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 550;
-}
-
-#signup-page input {
+    margin: 4%;
+  }
+  input{
+    width: 80%;
+    padding:5px 12px 0 20px;
+    margin: 18px 0;
+    box-sizing: border-box;
     border: none;
-    border-radius: 0;
     border-bottom: 1px solid gray;
-}
+    font-size:70%;
 
-#signup-page input:focus {
-    outline: none;
-    box-shadow: none;
-}
 
-.card-body {
-    padding: 0;
-}
+  }
+  .number-box{
+    display: flex;
+  }
+  .input-text-box1{
+    display: flex;
 
-#signup-page input::placeholder {
-    font-size: 10px;
-}
+  }
+  .tele{
+    width: 25%;
+    margin-top: 9%;
+  }
+  .teleinput{
+    margin-left:-10%;
+    width:96%;
+  }
+  .checkbox{
+    width: 100%;
+    display: flex;
+    margin-top: 1%;
 
-button.signup-btn {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    background-color: black;
-    border-radius: 0;
-    border: none;
-    width: 20vw;
-}
+  }
+  .checkbox__label{
+    width: 100%;
+    margin-left: 3%;
+    font-size: 100%;
+    color:  gray;
+    font-size:70%
 
-button.signup-btn:hover {
-    background-color: rgb(41, 41, 41);
-    border-radius: 0;
-    border: none;
-}
+  }
+  .signupbtn{
+  width: 85%;
+  background-color: white ;
+  color: rgb(6, 6, 6);
+  margin-top: 16%;
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 14px 28px;
+  cursor: pointer;
+  border: 0.5px solid black;
 
-#signup-card a {
-    text-decoration: none;
-    font-size: 10px;
-    color: gray;
-}
-
-.dbl-input .pw-input:last-of-type {
-    margin-left: 2rem
-}
-
-.input {
+  }
+  .Left-form{
+    /* border: 1px solid red; */
     width: 30%;
-}
+  }
+  .right-form{
+    /* border: 1px solid green; */
+    width: 40%;
+  }
+  .dot{
+    color: white
+    ;
+  }
+  .input-text-options{
+  font-size: 90%;
+  color: gray;
+  }
+  .changeform-btn{
+  display: flex;
+  width: 14%;
+  justify-content: space-between;
+  margin: 4%;
+  font-size: 80%;
+  font-weight:bold;
+  }
+  .headingform{
+    margin: 4%;
+    font-size: 98%;
+    color: black;
+  }
+  .signup-footer{
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin: 8%;
+  }
+  .list{
+  text-decoration: none;
+  color:gray;
+  font-size: 68%;
+  }
+  .header-heading{
+    font-size: 80%;
+  }

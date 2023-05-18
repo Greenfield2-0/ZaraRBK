@@ -11,84 +11,75 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = () => {
   const [useremail, setUserEmail] = useState('');
   const [userpw, setUserPassword] = useState('');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [Error,setError]=useState('');
+  const [username,setName]=useState('LOG IN')
 
-  useEffect(() => {
-    const user = window.localStorage.getItem('User');
-    if (user) {
-      setIsLoggedIn(true);
+
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   const user = {
+  //     useremail,
+  //     userpw,
+  //   };
+  //   const res = await axios.post('http://localhost:5000/api/user/login', user, {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  //   window.localStorage.setItem('User', JSON.stringify(res.data));
+  //   setName(res.data.user.username)
+  //   // const a=  window.localStorage.getItem('User');
+  //   // console.log(a);
+
+   
+  // };
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('http://localhost:5000/api/user/login', {
+        useremail: useremail,
+        userpw: userpw
+      });
+
+      const token = response.data.token;
+
+
+    localStorage.setItem('token',  response.data.token);
+    setName(response.data.user.username);
+      setError('Authentication successful')
+      // window.location.href = '/';
+      console.log(username)
+    } catch (err:any) {
+      console.log(err.response.data);
+      setError(err.response.data)
     }
-  }, []);
-
-  const handleLogout = () => {
-    window.localStorage.removeItem('User');
-    setIsLoggedIn(false);
   };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const user = {
-      useremail,
-      userpw,
-    };
-    const res = await axios.post('http://localhost:3000/api/user/login', user, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    window.localStorage.setItem('User', JSON.stringify(res.data));
-    setIsLoggedIn(true);
-  };
-
-  if (isLoggedIn) {
-    return (
-      <div>
-        <h1>Welcome, user!</h1>
-        <button onClick={handleLogout}>Logout</button>
-      </div>
-    );
-  }
+  
 
   return (
-    <div className="login-container">
-      <form onSubmit={handleSubmit}>
-        <div className="login-card">
-          <div className='g-0 d-flex'>
-            <div className='8'>
-              <div className="card-body">
-                <input
-                  className='mb-4'
-                  placeholder='E-MAIL'
-                  id='form1'
-                  type='email'
-                  value={useremail}
-                  onChange={(e) => setUserEmail(e.target.value)}
-                />
-                <input
-                  className='mb-4'
-                  placeholder='PASSWORD'
-                  id='form2'
-                  type='password'
-                  value={userpw}
-                  onChange={(e) => setUserPassword(e.target.value)}
-                />
-                <button type="submit" className="mb-4 w-100">Log in</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </form>
-      <div className="d-flex justify-content-between mb-4">
-        <a href="!#">Have you forgotten your password?</a>
-      </div>
-      <div className='6' id="need-account">
-        <h3>Need an Account?</h3>
-        <Link href={"/signup"}>
-          <button className="mb-4" id="register-btn">Register</button>
-        </Link>
-      </div>
+    <div>
+    <div   className='container-login'>
+  <div className='Left-login-form'>
+  <h3 className='login-heading'>LOG IN TO YOUR ACCOUNT</h3>
+ <div className='form-input-label'>
+      <input  className='form-input-label'type="text" id="fname" name="email" placeholder='E-MAIL' value={useremail} onChange={(e) => setUserEmail(e.target.value)}/>
+      <input  className='form-input-label' type="password" id="fname" name="password" placeholder='PASSWORD' style={{"outline":"none",'border':"none"}}  value={userpw} onChange={(e) => setUserPassword(e.target.value)}/>
+  </div>
+
+  <button  className="login-btn" onClick={handleSubmit}>LOGIN </button> <br></br>
+  <p>{Error}</p> <br></br>
+  <a className="forgotpassword"href='#'>HAVE YOU FORGOTTEN YOUR PASSWORD?</a>
+
+  </div>
+ 
+
+<div className='right-login-form'>
+<h4 >NEEED ACCOUNT</h4>
+<Link  href="/signup" className="create-btn" type="button" >REGISTER </Link>
+  </div>
+
+</div>
     </div>
-  );
-};
+    )
+}
 
 export default LoginForm;
