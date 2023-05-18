@@ -5,6 +5,7 @@ import '@/styles/ff.module.css';
 import Image from 'next/image'
 import axios from 'axios';
 import Link from 'next/link';
+import Woman from '../app/Woman/page.tsx'
 import Men from '../app/Men/page.tsx'
 const Header: FC = () => {
 
@@ -14,6 +15,12 @@ const Header: FC = () => {
   const handleDisplay=()=>{
     setDisplay(!display)
   }
+import Woman from '../app/Woman/page.tsx'
+const Header: FC = () => {
+
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  const [data , setData] = useState([]);
+  const [isLoaded , setIsLoaded] = useState(false);
 
   const fetchData = () => { 
    axios.get('http://localhost:5000/api/products/')
@@ -72,6 +79,7 @@ fetchData()
             <div id="headerRightRight">
            
   <Link href="/Login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
+  <Link href="/Login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
     LOG IN
  
 </Link>
@@ -105,7 +113,7 @@ fetchData()
             
 
   <div style={{ marginTop: "90px", display: 'flex', flexWrap: 'wrap' , marginBottom : '25px' }}>
-    <p className="menuOption" id="selected" style={{ marginRight: '10px' }}> WOMAN</p>
+    <p className="menuOption" style={{ marginRight: '10px' }} onClick={()=>setIsLoaded(!isLoaded)} >WOMAN</p>
     <p className="menuOption" style={{ marginRight: '10px' }} onClick={handleDisplay}>MEN</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>KIDS</p>
     <p className="menuOption" style={{ marginRight: '10px' }}>BEAUTY</p>
@@ -115,7 +123,16 @@ fetchData()
                <li className="menuOption">NEW</li> 
            {display ? <li className="menuOption"><Men/></li>:<></>}
                   
-             </ul>
+    <p className="menuOption" style={{ marginRight: '10px' }} onClick={()=>setIsLoaded(!isLoaded)} >WOMAN</p>
+    <p className="menuOption" style={{ marginRight: '10px' }}>MAN</p>
+    <p className="menuOption" style={{ marginRight: '10px' }}>KIDS</p>
+    <p className="menuOption" style={{ marginRight: '10px' }}>BEAUTY</p>
+  </div>
+{isLoaded ? 
+               <div className="menuOption"><Woman/></div>
+  : <div></div>
+}
+           </ul>
            </div>
            <div id="menuExtraOptions">
              <ul>
