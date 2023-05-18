@@ -1,49 +1,67 @@
-import React from 'react'
-import axios from 'axios'
-import { useState ,useEffect} from 'react'
-import CartDetail from '../CartDetail/CartDetail';
+"use client"
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import CartDetail from './CartDetail';
 
-function Cart() {
- const[prod,setProd]=useState([]);
- const user=localStorage.getItem("");
- interface Product {
-  id: number;
-  name: string;
-  price: number;
+interface Product {
+  productid: number;
+  productname: string;
+  productprice: number;
+  productquantity: number;
+  productcolor: string;
+  productcategory: string;
+  'productsub-category': string;
+  'productsub-sub-category': string;
+  productimage: string;
 }
- let orderid: number | undefined;
- const getOrderId=()=>(axios.get(`http://localhost:3000/api/user/one/${user.username}`)
- .then((res) => {
-   console.log(res)
-   orderid=res.data[0].orderid
- })
- .catch((err) => {
-   console.log(err);
- }));
 
- const fetchData=(id:any)=>{
-   axios.get(`http://localhost:3000/api/products/${id}`)
-    .then((res) => {
-      setProd(res.data)
-      console.log(prod)
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-};
-useEffect(() => {
-  fetchData(orderid)
-  getOrderId()
-});
- 
+const Cart: React.FC = (): JSX.Element => {
+  const [prod, setProd] = useState<Product[]>([]);
+  const [orderid, setOrderId] = useState<number>(0);
+
+  interface UserData {
+    token: string;
+    user: { userid: number; username: string; userlastname: string; useremail: string; userpw: string }[];
+    message: string;
+  }
+
+  useEffect(() => {
+    const storedData = window.localStorage.getItem('User');
+    if (storedData) {
+      const parsedData: UserData = JSON.parse(storedData);
+      const username = parsedData.user?.[0].username;
+      axios.get(`http://localhost:3000/api/user/one/${username}`)
+        .then((res) => {
+          console.log(res);
+          setOrderId(res.data[0].orderid);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, []);
+  const fetchData = (id: number | undefined) => {
+    axios.get(`http://localhost:3000/api/products/${id}`)
+      .then((res) => {
+        setProd(res.data);
+        console.log(res.data,'product');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    fetchData(orderid);
+  }, [orderid]);
+
+
   return (
-     prod.map((e:any)=>(
-      <>
-      <CartDetail e={e}/>
-      </>
-     ))
+    <>
+      {prod.map((e: Product) => (
+        <CartDetail key={e.productid} e={e} />
+      ))}
+    </>
+  );
+};
 
-  )
-}
-
-export default Cart
+export default Cart;
