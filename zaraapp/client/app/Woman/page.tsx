@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import axios from 'axios';
 
 interface Product {
@@ -19,7 +20,7 @@ const Woman: React.FC = () => {
 
   const fetchData = () => {
     axios
-      .get<Product[]>('http://localhost:5000/api/products/all/Women')
+      .get<Product[]>('http://localhost:5000/api/products/all/Woman')
       .then((res) => {
         setData(res.data);
       })
@@ -36,7 +37,9 @@ const Woman: React.FC = () => {
     <div>
       {data.map((product, index) => (
         <div key={product.productid}>
-          <h2>{product['productsub-category']}</h2>
+          <Link href={`/product/[category]=${product['productsub-category']}`} as={`/product/${product['productsub-category']}`}>
+              <h2>{product['productsub-category']}</h2>
+          </Link>
         </div>
       ))}
     </div>
