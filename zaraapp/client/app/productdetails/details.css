@@ -1,0 +1,133 @@
+header{
+    padding: 12px 20px;
+    display: flex;
+    position: fixed;
+    
+}
+.fa-bars{
+    font-size: 25px;
+}
+.logo{
+   max-width: 100%;
+    height: auto;
+    margin-left: 4%;
+    margin-top: -55px;
+    padding-left: 15%;
+}
+.rightnavlogin{
+    margin-top: -16px;
+    display: flex;
+    padding-left: 194%;
+    
+}
+
+a {
+    color:black;
+    user-select: none;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: Neue-Helvetica, Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 26px;
+    font-stretch: semi-condensed;
+    margin-right: 20px;
+}
+
+.container{
+    padding-top: 140px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 140px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.centerimgprod{
+    
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        
+    
+}
+
+.img1{
+    
+    margin: auto;
+    margin-top: 5%;
+    max-width: 350px;
+}
+
+.price, .new{
+    margin: 4px;
+    margin-left: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    font-stretch: semi-condensed;
+    
+}
+
+
+
+
+
+.right{
+    
+    margin-top: 70px;
+    width: 230px;
+    height: 320px;
+    padding-top: 100px;
+    flex-basis: 30%;
+}
+.left{
+    
+    margin-top: 70px;
+    width: 230px;
+    height: 320px;
+    padding-top: 100px;
+    flex-basis: 30%;
+    margin-right: 40px;
+}
+
+
+.right,.left, h3, p{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.right span p{
+    display: inline;
+}
+
+.right button{
+    background-color: rgb(61, 59, 59);
+    color: white;
+    width: 100%;
+    cursor: pointer;
+    height: 30px;
+    margin: 8px 0px;
+}
+
+.right select{
+  
+    background: transparent;
+    padding: 5px;
+    width: 100%;
+}
+
+.right h3{
+    word-spacing: 2px;
+    line-height: 12px;
+}
+/* when add to bag click visiblity block */
+.right button~button{
+    visibility: hidden;
+    
+}
+

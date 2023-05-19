@@ -1,5 +1,6 @@
 "use client"
 import React, { FC , useState , useEffect , useRef} from 'react';
+
 import '@/styles/ff.module.css';
 import Image from 'next/image';
 import axios from 'axios';
@@ -175,7 +176,7 @@ const Header: FC = () => {
               <div id="menuMainOptions" style={{ display: 'flex' }}>
                 <ul className="menuOptionsList">
                   <ul className="close" onClick={() => setMenuOpen(false)}>
-                    ×
+                    X
                   </ul>
 
                   <div
