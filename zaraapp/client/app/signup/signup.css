@@ -2,7 +2,9 @@
     width: 100%;
     /* border: 1px solid red; */
     display: flex;
-    margin: 4%;
+    margin: 5%;
+    height: 60%;
+    margin-top: 40px;
   }
   input{
     width: 80%;
@@ -65,8 +67,7 @@
     width: 40%;
   }
   .dot{
-    color: white
-    ;
+    color: white;
   }
   .input-text-options{
   font-size: 90%;
@@ -81,9 +82,12 @@
   font-weight:bold;
   }
   .headingform{
-    margin: 4%;
     font-size: 98%;
     color: black;
+    font-weight: bold;
+    justify-content: space-between;
+    margin-left:70px;
+    margin-top:50px    
   }
   .signup-footer{
     display: flex;
