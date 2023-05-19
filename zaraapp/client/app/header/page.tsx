@@ -5,8 +5,9 @@ import '@/styles/ff.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
-import Woman from '../Woman/page';
-import Men from '../Men/page';
+import Woman from '../app/Woman/page';
+import Men from '../app/Men/page';
+
 
 const Header: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -237,6 +238,20 @@ const Header: FC = () => {
                     {show ? (
                     <div className="menuOption">
                       <Woman/>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                   {showKid ? (
+                    <div className="menuOption">
+                      <Kid/>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                   {showBeauty ? (
+                    <div className="menuOption">
+                      <Beauty/>
                     </div>
                   ) : (
                     <></>
