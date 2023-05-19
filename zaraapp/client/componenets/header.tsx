@@ -1,3 +1,4 @@
+"use client"
 import React, { FC , useState , useEffect , useRef} from 'react';
 import '@/styles/ff.module.css';
 import Image from 'next/image'
