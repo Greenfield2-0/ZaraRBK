@@ -1,0 +1,20 @@
+.searchbar {
+    margin-top: 1.6em;
+    width: 98%;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(8, 8, 8);
+    padding: 0.2em 0em;
+    
+    
+
+  }
+
+  
+  .searchbar::placeholder {
+    color: rgb(30, 80, 95);
+    margin-bottom: 20px;
+  }
+  
+  
+  
