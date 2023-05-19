@@ -7,6 +7,8 @@ import axios from 'axios';
 import Link from 'next/link';
 import Woman from '../app/Woman/page';
 import Men from '../app/Men/page';
+import Beauty from '../app/Beauty/page';
+import Kid from '../app/Kid/page';
 
 const Header: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -236,6 +238,20 @@ const Header: FC = () => {
                     {show ? (
                     <div className="menuOption">
                       <Woman/>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                   {showKid ? (
+                    <div className="menuOption">
+                      <Kid/>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                   {showBeauty ? (
+                    <div className="menuOption">
+                      <Beauty/>
                     </div>
                   ) : (
                     <></>

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import './form.css';
 import axios from 'axios';
-
 interface LoginFormProps {
   onSubmit: (useremail: string, userpw: string) => void;
 }

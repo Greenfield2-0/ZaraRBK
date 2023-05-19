@@ -36,7 +36,7 @@ const OneProduct: React.FC = () => {
             <div>
              {products.map((product, index) => (
               <div key={index}>
-                <Link href="/productdetails">
+                <Link href="/productdetails" e={product} >
                 <img src={product.productimage}  />
                 </Link>
                 <h6>{product.productname}</h6>
