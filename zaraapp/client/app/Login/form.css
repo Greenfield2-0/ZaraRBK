@@ -2,6 +2,7 @@ body{
     background-color: white;
 }
 .container-login{
+  margin-top: 1.6em;
     width: 60%;
         display: flex;
         color: gray;

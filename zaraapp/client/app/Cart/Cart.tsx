@@ -27,6 +27,7 @@ const Cart: React.FC = (): JSX.Element => {
 
   useEffect(() => {
     const storedData = window.localStorage.getItem('User');
+    console.log(storedData,'hh')
     if (storedData) {
       const parsedData: UserData = JSON.parse(storedData);
       console.log(storedData)

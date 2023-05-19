@@ -5,8 +5,8 @@ import '@/styles/ff.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
-import Woman from '../app/Woman/page';
-import Men from '../app/Men/page';
+import Woman from '../Woman/page';
+import Men from '../Men/page';
 
 const Header: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -66,11 +66,12 @@ const Header: FC = () => {
           padding: '12px 24px 20px 24px',
           position: 'fixed',
           margin: '0px',
+
         }}
       >
         <div
           id="headerContents"
-          style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}
+          style={{ display: 'flex', justifyContent: 'space-between', width: '100%' , position: 'fixed' }}
         >
           <div id="headerLeft" style={{ display: 'flex' }}>
             <div>
@@ -106,7 +107,7 @@ const Header: FC = () => {
           >
             <div id="headerRightLeft">
               <Link
-                href="/Search"
+                href="/search"
                 style={{
                   padding: '0% 60% 0% 0%',
                   fontSize: '13px',
@@ -196,8 +197,8 @@ const Header: FC = () => {
             >
               <div id="menuMainOptions" style={{ display: 'flex' }}>
                 <ul className="menuOptionsList">
-                  <ul className="close" onClick={() => setMenuOpen(false)}>
-                    X
+                  <ul className="close" onClick={() => setMenuOpen(false)}  style={{marginRight : "100px"}} >
+                  ✖
                   </ul>
 
                   <div
@@ -257,7 +258,3 @@ const Header: FC = () => {
 };
 
 export default Header;
-
-
-
-

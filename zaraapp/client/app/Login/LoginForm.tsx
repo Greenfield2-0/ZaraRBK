@@ -55,8 +55,8 @@ const LoginForm: React.FC<LoginFormProps> = () => {
 
   return (
     <div>
-    <div   className='container-login'>
-  <div className='Left-login-form'>
+    <div   className='container-login'  style={{marginTop: "2vh"}}  >
+  <div className='Left-login-form'  style={{marginTop: "40vh"}}>
   <h3 className='login-heading'>LOG IN TO YOUR ACCOUNT</h3>
  <div className='form-input-label'>
       <input  className='form-input-label'type="text" id="fname" name="email" placeholder='E-MAIL' value={useremail} onChange={(e) => setUserEmail(e.target.value)}/>
@@ -70,7 +70,7 @@ const LoginForm: React.FC<LoginFormProps> = () => {
   </div>
  
 
-<div className='right-login-form'>
+<div className='right-login-form'style={{marginTop: "40vh"}} >
 <h4 >NEEED ACCOUNT</h4>
 <Link  href="/signup" className="create-btn" type="button" >REGISTER </Link>
   </div>

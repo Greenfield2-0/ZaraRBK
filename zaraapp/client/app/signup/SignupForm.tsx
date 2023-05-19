@@ -29,16 +29,15 @@ const SignupForm: React.FC = () => {
   };
 
   return (
-    < div>
+    < div style={{marginTop : "-40px"}}   >
   
-          <div className='changeform-btn'>
-       </div>
-     <h1>{error}</h1>
-     <h2 className='headingform'>PERSONAL DETAILS</h2>
-        <div className='container'>
+          
 
-          <div className='Left-form'> 
-         <div className='input-text-box'></div>
+        <div className='container'  >
+
+          <div className='Left-form' style={{marginTop : "100px"}} > 
+          <h1>{error}</h1>
+         <h2 className='headingform'>PERSONAL DETAILS</h2>
          <input    className="input-text"type="text" id="fname" name="email" placeholder='E-MAIL'  value={useremail} onChange={(e) => setEmail(e.target.value)} />
          
   <div className='input-text-box'>
@@ -68,7 +67,7 @@ const SignupForm: React.FC = () => {
   </div>
   <input type="submit" className='signupbtn' value="CREATE ACCOUNT" onClick={handleSubmit}/>
   </div>
-  <div className='right-form'>
+  <div className='right-form '  style={{marginTop : "100px"}} >
 <div className='input-text-box'>
       <h1 className='dot'>.</h1>
   </div>
