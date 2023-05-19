@@ -12,10 +12,15 @@ const Header: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [data, setData] = useState([]);
   const [display, setDisplay] = useState(false);
+  const [show, setShow] = useState(false);
+ 
 
   const handleDisplay = () => {
     setDisplay(!display);
   };
+  const handleShow=()=>{
+    setShow(!show)
+  }
 
   const fetchData = () => {
     axios
@@ -185,7 +190,7 @@ const Header: FC = () => {
                     <p
                       className="menuOption"
                       style={{ marginRight: '10px' }}
-                      onClick={() => setDisplay(!display)}
+                      onClick={handleShow}
                     >
                       WOMAN
                     </p>
@@ -199,7 +204,6 @@ const Header: FC = () => {
                       BEAUTY
                     </p>
                   </div>
-
                   <li className="menuOption">NEW</li>
                   {display ? (
                     <div className="menuOption">
@@ -208,38 +212,21 @@ const Header: FC = () => {
                   ) : (
                     <></>
                   )}
-
-                  <p
-                    className="menuOption"
-                    style={{ marginRight: '10px' }}
-                    onClick={() => setDisplay(!display)}
-                  >
-                    WOMAN
-                  </p>
-                  <p className="menuOption" style={{ marginRight: '10px' }}>
-                    MAN
-                  </p>
-                  <p className="menuOption" style={{ marginRight: '10px' }}>
-                    KIDS
-                  </p>
-                  <p className="menuOption" style={{ marginRight: '10px' }}>
-                    BEAUTY
-                  </p>
-                </ul>
-              </div>
-              {isLoaded ? (
-                <div className="menuOption">
-                  <Woman />
-                </div>
-              ) : (
-                <div></div>
-              )}
-            </div>
-            <div id="menuExtraOptions">
+                    {show ? (
+                    <div className="menuOption">
+                      <Woman/>
+                    </div>
+                  ) : (
+                    <></>
+                  )}
+                   <div id="menuExtraOptions">
               <ul>
                 <li>JOIN LIFE</li>
                 <li>+ INFO</li>
               </ul>
+            </div>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
