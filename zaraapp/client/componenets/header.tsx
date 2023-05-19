@@ -4,8 +4,8 @@ import '@/styles/ff.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
-import Woman from '../app/Woman/page.tsx';
-import Men from '../app/Men/page.tsx';
+import Woman from '../app/Woman/page';
+import Men from '../app/Men/page';
 
 const Header: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);

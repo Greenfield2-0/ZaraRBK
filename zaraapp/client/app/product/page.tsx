@@ -15,12 +15,12 @@ interface Product {
   productimage: string;
 }
 
-const Woman: React.FC = () => {
+const Product: React.FC = () => {
   const [data, setData] = useState<Product[]>([]);
 
   const fetchData = () => {
     axios
-      .get<Product[]>('http://localhost:5000/api/products/all/WOMAN')
+      .get<Product[]>(`http://localhost:5000/api/products/all/sub/${productsub-category}`)
       .then((res) => {
         setData(res.data);
       })
@@ -37,13 +37,13 @@ const Woman: React.FC = () => {
     <div>
       {data.map((product, index) => (
         <div key={product.productid}>
-          <Link href="/product">
-          <h2>{product['productsub-category']}</h2>
-          </Link>
+          <img src={product.productimage}  />
+          <h6>{product.productname}</h6>
+          <h5>{product.productprice}</h5>
         </div>
       ))}
     </div>
   );
 };
 
-export default Woman;
+export default Product;
