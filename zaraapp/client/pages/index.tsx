@@ -76,9 +76,6 @@ export default function App() {
 
     </div>
   );
-    <div>
-      <div className="App" style={appStyle}></div>
-    
-    </div>
-  );
+
+  
 }

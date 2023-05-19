@@ -2,6 +2,7 @@ import React, { FC , useState , useEffect , useRef} from 'react';
 import '@/styles/ff.module.css';
 import Image from 'next/image'
 import axios from 'axios';
+import Link from 'next/link';
 const Header: FC = () => {
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -45,26 +46,30 @@ fetchData()
               />
             </div>
             {isMenuOpen ? null : (
-              <div>
+              <Link  href = "/">
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Zara_Logo.svg"
                   alt="Zara_Logo"
                   id="logo"
                   style={{ width: '212px' }}
                 />
-              </div>
+              </Link>
             )}
           </div>
           <div id="headerRight" style={{ width: '30%', display: 'flex', marginRight: '30px', padding: '10px', justifyContent: 'space-between' }}>
             <div id="headerRightLeft">
-              <a href="" style={{ padding: '0% 60% 0% 0%', fontSize: '13px', textDecoration: 'none', borderBottom: '1px solid black', color: 'rgb(41, 41, 41)', fontWeight: 700, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
+              <Link href="/search" style={{ padding: '0% 60% 0% 0%', fontSize: '13px', textDecoration: 'none', borderBottom: '1px solid black', color: 'rgb(41, 41, 41)', fontWeight: 700, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
                 SEARCH
-              </a>
+              </Link>
             </div>
             <div id="headerRightRight">
-              <a href="./Login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
-                LOG IN
-              </a>
+           
+  <Link href="/login" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
+    LOG IN
+ 
+</Link>
+
+
               <a href="" style={{ textDecoration: 'none', padding: '0px 10px 0px 10px', fontSize: '13px', color: 'rgb(41, 41, 41)', fontWeight: 100, fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif', fontStretch: 'ultra-condensed' }}>
                 HELP
               </a>
