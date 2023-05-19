@@ -4,7 +4,7 @@ import axios from 'axios';
 import "./search.css"
 
 const Search: React.FC = () => {
-  
+
   const [search, setSearch] = useState<string>('');
   const [results, setResults] = useState<any[]>([]);
 
