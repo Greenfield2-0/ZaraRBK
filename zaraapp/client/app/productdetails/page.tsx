@@ -1,6 +1,5 @@
 import React from 'react';
-import Image from 'next/image';
-import Slider from 'react-slick';
+import Image from 'next/image'
 import "./details.css"
 const Details: React.FC = () => {
   const settings = {
