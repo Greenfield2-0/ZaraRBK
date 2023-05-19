@@ -12,15 +12,36 @@ const Header: FC = () => {
   const [data, setData] = useState([]);
   const [display, setDisplay] = useState(false);
   const [show, setShow] = useState(false);
+  const[showKid,setShowKid]=useState(false);
+  const[showBeauty,setshowBeauty]=useState(false)
+
  
 
   const handleDisplay = () => {
     setDisplay(!display);
+    setShow(false)
+    setShowKid(false)
+    setshowBeauty(false)
   };
   const handleShow=()=>{
     setShow(!show)
+    setDisplay(false)
+    setShowKid(false)
+    setshowBeauty(false)
   }
+  const handleShowKid=()=>{
+    setShowKid(!showKid)
+    setDisplay(false)
+    setShow(false)
+    setshowBeauty(false)
+  }
+  const handleShowBeauty=()=>{
+    setshowBeauty(!showBeauty)
+    setShowKid(false)
+    setDisplay(false)
+    setShow(false)
 
+  }
   const fetchData = () => {
     axios
       .get('http://localhost:5000/api/products/')
@@ -196,10 +217,10 @@ const Header: FC = () => {
                     <p className="menuOption" style={{ marginRight: '10px' }} onClick={handleDisplay}>
                       MEN
                     </p>
-                    <p className="menuOption" style={{ marginRight: '10px' }}>
+                    <p className="menuOption" style={{ marginRight: '10px' }} onClick={handleShowKid}>
                       KIDS
                     </p>
-                    <p className="menuOption" style={{ marginRight: '10px' }}>
+                    <p className="menuOption" style={{ marginRight: '10px' }} onClick={handleShowBeauty}>
                       BEAUTY
                     </p>
                   </div>
