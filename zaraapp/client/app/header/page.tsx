@@ -5,8 +5,11 @@ import '@/styles/ff.module.css';
 import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
-import Woman from '../app/Woman/page';
-import Men from '../app/Men/page';
+import Woman from '../Woman/page';
+import Men from '../Men/page';
+import Kid from '../Kid/page';
+import Beauty from '../Beauty/page';
+
 
 
 const Header: FC = () => {
@@ -138,8 +141,8 @@ const Header: FC = () => {
               >
                 LOG IN
               </Link>
-              <a
-                href=""
+              <Link
+                href="/help"
                 style={{
                   textDecoration: 'none',
                   padding: '0px 10px 0px 10px',
@@ -151,7 +154,7 @@ const Header: FC = () => {
                 }}
               >
                 HELP
-              </a>
+              </Link>
               <Link
                 href="./Cart"
                 style={{
