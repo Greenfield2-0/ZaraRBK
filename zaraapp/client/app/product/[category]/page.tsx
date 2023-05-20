@@ -45,15 +45,10 @@ const OneProduct: React.FC = () => {
             ))} 
           </div>
   );
-            </div>
-          ))}
-        </div>
-      </div>
-    );
+    
+  return null;
   }
 
-  return null;
-};
 
 export default OneProduct;
 
