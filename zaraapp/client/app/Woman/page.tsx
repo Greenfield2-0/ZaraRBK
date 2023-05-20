@@ -19,7 +19,7 @@ const Woman: React.FC = () => {
 
   const fetchData = () => {
     axios
-      .get<Product[]>('http://localhost:5000/api/products/all/Women')
+      .get<Product[]>('http://localhost:5000/api/products/all/Woman')
       .then((res) => {
         setData(res.data);
       })
