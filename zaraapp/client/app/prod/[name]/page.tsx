@@ -1,21 +1,31 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import "./details.css"
+'use client'
+import { use, useEffect, useState } from "react";
+import axios from "axios"
 interface Product {
-  productid: number;
-  productname: string;
-  productprice: number;
-  productquantity: number;
-  productcolor: string;
-  productcategory: string;
-  'productsub-category': string;
-  'productsub-sub-category': string;
-  productimage: string;
-}
-
-const Details: React.FC<{ e: Product }> = ({ e }) => {
-  const [orderid, setOrderId] = useState<number>(0);
+    productname: string;
+    productprice: number;
+    productquantity: number;
+    productcolor: string;
+    productcategory: string;
+    'productsub-category': string;
+    'productsub-sub-category': string;
+    productimage: string;
+    orderid:number
+  }
+export default function detailname() {
+    const [name,setName]=useState<string>("")
+    const [data, setData] = useState<Product[]>([]);
+    const [product,setProduct]=useState('')
+    useEffect(()=>{
+    setName(window.location.pathname.split('/')[2])
+    if(name){
+            axios.get(`http://localhost:5000/api/products/one/${name}`)
+                .then((res) => {setData(res.data)
+                console.log(res.data)})
+                .catch((err) => console.log(err))
+    }
+    },[name])
+    const [orderid, setOrderId] = useState<number>(0);
     interface UserData {
         token: string;
         user: { userid: number; username: string; userlastname: string; useremail: string; userpw: string }[];
@@ -27,43 +37,58 @@ const Details: React.FC<{ e: Product }> = ({ e }) => {
         if (storedData) {
           const parsedData: UserData = JSON.parse(storedData);
           console.log(storedData)
+          const userid = parsedData.user?.[0].userid;
           const username = parsedData.user?.[0].username;
-          axios.get(`http://localhost:5000/api/user/one/${username}`)
+          axios.post(`http://localhost:5000/api/orders/`,{orderdate:12,userid:userid})
             .then((res) => {
               console.log(res);
-              setOrderId(res.data[0].orderid);
             })
+            .then((res) => {
+                axios.get(`http://localhost:5000/api/user/one/${username}`)
+                .then((res) => {
+                  console.log(res);
+                  setOrderId(res.data[0].orderid);
+                })
+              })
+
             .catch((err) => {
               console.log(err);
             });
         }
       }, []);
+0
+const prod: Product = {
+    productname: data[0]?.productname || '',
+    productprice: data[0]?.productprice || 0,
+    productquantity: data[0]?.productquantity || 0,
+    productcolor: data[0]?.productcolor || '',
+    productcategory: data[0]?.productcategory || '',
+    'productsub-category': data[0]?.['productsub-category'] || '',
+    'productsub-sub-category': data[0]?.['productsub-sub-category'] || '',
+    productimage: data[0]?.productimage || '',
+    orderid: orderid,
+  };
 
-    const prod = {
-       productname: e.productname,
-       productprice: e.productprice,
-       productquantity: e.productquantity,
-       productcolor: e.productcolor,
-       productcategory: e.productcategory,
-       'productsub-category': e['productsub-category'],
-      'productsub-sub-category': e['productsub-sub-category'],
-       productimage: e.productimage,
-       orderid: orderid,
-      }; 
-      const postData = (prod:object | undefined) => {
-        axios.post(`http://localhost:5000/api/products/`,prod)
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
-  const handleAdd=()=>{
-    console.log('it works')
-     postData(prod)
+  const postData = (prod: object | undefined) => {
+    axios
+      .post(`http://localhost:5000/api/products/`,prod)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleAdd = () => {
+    console.log('Add to bag button clicked');
+    console.log(prod)
+    postData(prod);
+  };
+
+  if (data.length === 0) {
+    return <div>Loading...</div>;
   }
- 
   const settings = {
     dots: true,
     infinite: true,
@@ -81,8 +106,6 @@ const Details: React.FC<{ e: Product }> = ({ e }) => {
           <br />
           <p>
           COMPOSITION & CARE
-
-
 To assess compliance, we have developed a programme of audits and continuous improvement plans.
           </p>
           <br />
@@ -102,21 +125,21 @@ To assess compliance, we have developed a programme of audits and continuous imp
           <div className="img1">
             <img
               className="centerimgprod"
-              src={e.productimage}
+              src={data[0].productimage}
               alt="Product Image"
             />
           </div>
         </div>
         <div>
           <div className="right" style={{marginRight : "40px"}} >
-            <h2 className="cat">{e.productname}</h2>
+            <h2 className="cat">{data[0].productname}</h2>
             <h3>Lapelless blazer made of a linen blend fabric. Long sleeves. Flap pockets on the front. Tie belt in the same fabric. Matching lining. Double-breasted fastening with hidden button.</h3>
             <br />
 
-            <span> <p className="pricetag"> {e.productprice}$ </p></span>
+            <span> <p className="pricetag"> {data[0].productprice}$ </p></span>
             <p>MRP incl. of all taxes</p>
             <br />
-            <p>{e.productcolor} | 0647/301</p>
+            <p>{data[0].productcolor} | 0647/301</p>
             <br />
             <select name="" id="prodsize">
               <option value="null">Select your size</option>
@@ -138,6 +161,5 @@ DELIVERY, EXCHANGES AND RETURNS</p>
       </div>
     </div>
   );
-};
-
-export default Details;
+   
+  }

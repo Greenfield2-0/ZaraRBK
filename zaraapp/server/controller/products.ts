@@ -21,8 +21,11 @@ import {
       });
   };
   export const getoneProd= (req: Request, res: Response) => {
+    console.log(req.params.prodname,'f ctrl')
     getOne(req.params.prodname)
+ 
       .then((result: any) => {
+       
         res.send(result);
       })
       .catch((error: any) => {
