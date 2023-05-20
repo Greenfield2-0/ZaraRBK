@@ -2,11 +2,13 @@
 import React, { FC , useState , useEffect , useRef} from 'react';
 
 import '@/styles/ff.module.css';
-import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
-import Woman from '../app/Woman/page';
-import Men from '../app/Men/page';
+import Woman from '../Woman/page';
+import Men from '../Men/page';
+import Kid from '../Kid/page';
+import Beauty from '../Beauty/page';
+
 
 
 const Header: FC = () => {

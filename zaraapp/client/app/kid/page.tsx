@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
-
+import Link from 'next/link';
 interface Product {
   productid: number;
   productname: string;
@@ -14,7 +14,7 @@ interface Product {
   productimage: string;
 }
 
-const Men: React.FC = (): React.ReactElement => {
+const Kid: React.FC = (): React.ReactElement => {
   const [data, setData] = useState<Product[]>([]);
 
   const fetchData = () => {
@@ -34,10 +34,12 @@ const Men: React.FC = (): React.ReactElement => {
   return (
     <>
       {data.map((product) => (
-        <h2 key={product.productid}>{product['productsub-category']}</h2>
+        <Link href={`/product/[category]=${product['productsub-category']}`} as={`/product/${product['productsub-category']}`}>
+        <h2>{product['productsub-category']}</h2>
+    </Link>
       ))}
     </>
   );
 }
 
-export default Men;
+export default Kid;
