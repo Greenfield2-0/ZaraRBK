@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
-
+import './product.css'
 interface Product {
   productid: number;
   productname: string;
@@ -14,7 +14,7 @@ interface Product {
   'productsub-sub-category': string;
   productimage: string;
 }
-  
+
 const OneProduct: React.FC = () => {
     const [category, setCategory] = useState<String>("")
     const [products, setProducts] = useState<Array<Object>>([])
@@ -33,17 +33,20 @@ const OneProduct: React.FC = () => {
 
         return (
 
-            <div>
+            <div className='Main'style={{marginLeft :"520px" , marginTop : "7px" }} >
+              <div className="render-data ">
              {products.map((product, index) => (
               <div key={index}>
                 <Link href="/productdetails" e={product} >
-                <img src={product.productimage}  />
+                <img src={product.productimage} className='Product_image_tri' style={{ marginTop : "120px"}}  />
                 </Link>
+                <div className='subdivproduct'   >
                 <h6>{product.productname}</h6>
                 <h5>{product.productprice}</h5>
+                </div>
               </div>
             ))} 
-   
+            </div>
           </div>
 
   );
