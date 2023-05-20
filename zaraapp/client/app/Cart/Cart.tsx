@@ -30,7 +30,7 @@ const Cart: React.FC = (): JSX.Element => {
     console.log(storedData,'hh')
     if (storedData) {
       const parsedData: UserData = JSON.parse(storedData);
-      console.log(storedData,'hh')
+      console.log(storedData)
       const username = parsedData.user?.[0].username;
       axios.get(`http://localhost:5000/api/user/one/${username}`)
         .then((res) => {
