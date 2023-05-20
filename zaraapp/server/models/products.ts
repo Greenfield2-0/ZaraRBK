@@ -9,6 +9,7 @@ export const getAll = () => {
   });
 };
 export const getOne = (prod:any) => {
+  console.log(prod,'f model')
   return new Promise((resolve, reject) => {
     const sql = `SELECT * FROM products WHERE productname LIKE '${prod}'`;
     con.query(sql, (err, rslt) => {
@@ -75,6 +76,7 @@ export const createProduct = (product: any) => {
     });
   });
 };
+
 
 export const changeProduct=(id: any, order: any) => {
   return new Promise((resolve, reject) => {

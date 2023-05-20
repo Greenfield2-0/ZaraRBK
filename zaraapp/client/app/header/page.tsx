@@ -2,7 +2,6 @@
 import React, { FC , useState , useEffect , useRef} from 'react';
 
 import '@/styles/ff.module.css';
-import Image from 'next/image';
 import axios from 'axios';
 import Link from 'next/link';
 import Woman from '../Woman/page';
