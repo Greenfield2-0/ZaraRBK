@@ -1,0 +1,6 @@
+.menuOption {
+    text-decoration: none !important;
+    cursor: default !important;
+     color: grey; 
+    font-size: x-small;
+  }

@@ -1,31 +1,35 @@
 "use client"
-import { useEffect, useState } from 'react';
-import axios from "axios"
-import React from 'react';
-import './help.css'
-import Header from '../header/page';
+import React, { useState } from 'react';
+import axios from 'axios';
+import "./help.css"
+const Help = () => {
+  const [searchText, setSearchText] = useState('');
 
-const Help=()=>{
-    const [data,setData]=useState<any>([])
+  const handleSearchChange = (event) => {
+    setSearchText(event.target.value);
+  };
 
-return(
-  <div>
-  <Header/>
-  <div className="help">
-  <div className="form">
-    <h4>HOW CAN WE HELP YOU?</h4>
-    <input
-      type="input"
-      className="searchHelp"
-      placeholder="Search"
-      name="name"
-      id="name"
-      onChange={(e)=>setData(e.target.value)}
-    />
-  </div>
+  return (
+    <div
+      style={{
+      
+
+      }}
+    >
+      <div className='help' >
+        
+         <h4 className="head"  >HOW CAN WE HELP YOU?</h4>
+      <input
+        type="text"
+        value={searchText}
+        className='searchbar'
+        placeholder="look for "
+       
+        onChange={handleSearchChange}
+      /></div>
+     
     </div>
-    </div>
+  );
+};
 
-) 
-}
-export default Help
+export default Help;

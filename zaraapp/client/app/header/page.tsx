@@ -1,7 +1,6 @@
 "use client"
-import React, { FC , useState , useEffect , useRef} from 'react';
-
-import '@/styles/ff.module.css';
+import React, { FC, useState, useEffect } from 'react';
+import './ff.css';
 import axios from 'axios';
 import Link from 'next/link';
 import Woman from '../Woman/page';
@@ -9,43 +8,42 @@ import Men from '../Men/page';
 import Kid from '../Kid/page';
 import Beauty from '../Beauty/page';
 
-
-
 const Header: FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [data, setData] = useState([]);
   const [display, setDisplay] = useState(false);
   const [show, setShow] = useState(false);
-  const[showKid,setShowKid]=useState(false);
-  const[showBeauty,setshowBeauty]=useState(false)
-
- 
+  const [showKid, setShowKid] = useState(false);
+  const [showBeauty, setshowBeauty] = useState(false);
 
   const handleDisplay = () => {
     setDisplay(!display);
-    setShow(false)
-    setShowKid(false)
-    setshowBeauty(false)
+    setShow(false);
+    setShowKid(false);
+    setshowBeauty(false);
   };
-  const handleShow=()=>{
-    setShow(!show)
-    setDisplay(false)
-    setShowKid(false)
-    setshowBeauty(false)
-  }
-  const handleShowKid=()=>{
-    setShowKid(!showKid)
-    setDisplay(false)
-    setShow(false)
-    setshowBeauty(false)
-  }
-  const handleShowBeauty=()=>{
-    setshowBeauty(!showBeauty)
-    setShowKid(false)
-    setDisplay(false)
-    setShow(false)
 
-  }
+  const handleShow = () => {
+    setShow(!show);
+    setDisplay(false);
+    setShowKid(false);
+    setshowBeauty(false);
+  };
+
+  const handleShowKid = () => {
+    setShowKid(!showKid);
+    setDisplay(false);
+    setShow(false);
+    setshowBeauty(false);
+  };
+
+  const handleShowBeauty = () => {
+    setshowBeauty(!showBeauty);
+    setShowKid(false);
+    setDisplay(false);
+    setShow(false);
+  };
+
   const fetchData = () => {
     axios
       .get('http://localhost:5000/api/products/')
@@ -69,12 +67,11 @@ const Header: FC = () => {
           padding: '12px 24px 20px 24px',
           position: 'fixed',
           margin: '0px',
-
         }}
       >
         <div
           id="headerContents"
-          style={{ display: 'flex', justifyContent: 'space-between', width: '100%' , position: 'fixed' }}
+          style={{ display: 'flex', justifyContent: 'space-between', width: '100%', position: 'fixed' }}
         >
           <div id="headerLeft" style={{ display: 'flex' }}>
             <div>
@@ -122,7 +119,7 @@ const Header: FC = () => {
                   fontStretch: 'ultra-condensed',
                 }}
               >
-                SEARCH
+                <span className="menuLink">SEARCH</span>
               </Link>
             </div>
             <div id="headerRightRight">
@@ -138,10 +135,11 @@ const Header: FC = () => {
                   fontStretch: 'ultra-condensed',
                 }}
               >
-                LOG IN
+                <span className="menuLink">LOG IN</span>
               </Link>
-              <Link
-                href="/help"
+              
+                <Link
+                href="./help"
                 style={{
                   textDecoration: 'none',
                   padding: '0px 10px 0px 10px',
@@ -152,22 +150,31 @@ const Header: FC = () => {
                   fontStretch: 'ultra-condensed',
                 }}
               >
-                HELP
-              </Link>
-              <Link
-                href="./Cart"
-                style={{
-                  textDecoration: 'none',
-                  padding: '0px 10px 0px 10px',
-                  fontSize: '13px',
-                  color: 'rgb(41, 41, 41)',
-                  fontWeight: 100,
-                  fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif',
-                  fontStretch: 'ultra-condensed',
-                }}
-              >
-                CART
-              </Link>
+                <span className="menuLink">HELP</span>
+                </Link>
+              
+                <Link
+  href="./Cart"
+  style={{
+    textDecoration: 'none',
+    padding: '0px 10px',
+    fontSize: '13px',
+    color: 'rgb(41, 41, 41)',
+    fontWeight: 100,
+    fontFamily: 'Neue-Helvetica, Helvetica, Arial, Sans-Serif',
+    fontStretch: 'ultra-condensed',
+  }}
+>
+  <img
+    style={{
+      width: '22px',
+      height: '19px',
+    }}
+    src="https://cdn-icons-png.flaticon.com/512/3110/3110065.png"
+    alt="Cart"
+  />
+</Link>
+
             </div>
           </div>
         </div>
@@ -192,16 +199,17 @@ const Header: FC = () => {
               style={{
                 position: 'fixed',
                 overflow: 'hidden',
-                height: '1000px',
-                width: '500px',
+                height: '4000px',
+                width: '470px',
                 backgroundColor: 'white',
-                marginTop: '-20px',
+                marginTop: '-30px',
+                marginLeft : "-20px"
               }}
             >
               <div id="menuMainOptions" style={{ display: 'flex' }}>
                 <ul className="menuOptionsList">
-                  <ul className="close" onClick={() => setMenuOpen(false)}  style={{marginRight : "100px"}} >
-                  ✖
+                  <ul className="close" onClick={() => setMenuOpen(false)} style={{ marginRight: '100px' , marginLeft : "-41px" , fontSize : "21px" , color : "grey" }}>
+                  ✕
                   </ul>
 
                   <div
@@ -210,60 +218,67 @@ const Header: FC = () => {
                       display: 'flex',
                       flexWrap: 'wrap',
                       marginBottom: '25px',
+              
                     }}
                   >
-                    <p
-                      className="menuOption"
-                      style={{ marginRight: '10px' }}
-                      onClick={handleShow}
-                    >
-                      WOMAN
-                    </p>
-                    <p className="menuOption" style={{ marginRight: '10px' }} onClick={handleDisplay}>
-                      MEN
-                    </p>
-                    <p className="menuOption" style={{ marginRight: '10px' }} onClick={handleShowKid}>
-                      KIDS
-                    </p>
-                    <p className="menuOption" style={{ marginRight: '10px' }} onClick={handleShowBeauty}>
-                      BEAUTY
-                    </p>
+ <p className="menuOption" style={{ marginLeft: '-10px', marginTop: '-40px' , fontFamily: 'Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+  color: 'grey',
+  fontSize: '11px'  , cursor : "pointer"}} onClick={handleShow}>
+    WOMAN
+  </p>
+  <p className="menuOption" style={{ marginRight: '20px', marginTop: '-40px' , marginLeft : "25px" , fontFamily: 'Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+  color: 'rgb(134, 134, 134)',
+  fontSize: '11px' ,  cursor : "pointer" }} onClick={handleDisplay}>
+    MEN
+  </p>
+  <p className="menuOption" style={{ marginRight: '20px', marginTop: '-40px' , fontFamily: 'Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+  color: 'rgb(134, 134, 134)',
+  fontSize: '11px',  cursor : "pointer" }} onClick={handleShowKid}>
+    CHILDREN
+  </p>
+  <p className="menuOption" style={{ marginRight: '10px', marginTop: '-40px' , fontFamily: 'Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+  color: 'rgb(134, 134, 134)',
+  fontSize: '11px' ,  cursor : "pointer" }} onClick={handleShowBeauty}>
+    BEAUTY
+  </p>
                   </div>
-                  <li className="menuOption">NEW</li>
+                  <li className="menuOption" style={{marginTop : "-20px" , fontsize : "20px"  }}   >NEW</li>
                   {display ? (
-                    <div className="menuOption">
+                    <div className="menuOption"   >
                       <Men />
                     </div>
                   ) : (
                     <></>
                   )}
-                    {show ? (
+                  {show ? (
                     <div className="menuOption">
-                      <Woman/>
+                      <Woman />
                     </div>
                   ) : (
                     <></>
                   )}
-                   {showKid ? (
+                  {showKid ? (
                     <div className="menuOption">
-                      <Kid/>
+                      <Kid />
                     </div>
                   ) : (
                     <></>
                   )}
-                   {showBeauty ? (
-                    <div className="menuOption">
-                      <Beauty/>
-                    </div>
+                  {showBeauty ? (
+                 <div className="menuOption" style={{ textDecoration: 'none', cursor: 'default' }}>
+                 <Beauty />
+               </div>
+               
+                
                   ) : (
                     <></>
                   )}
-                   <div id="menuExtraOptions">
-              <ul>
-                <li>JOIN LIFE</li>
-                <li>+ INFO</li>
-              </ul>
-            </div>
+                  <div id="menuExtraOptions">
+                    <ul>
+                      <li>JOIN LIFE</li>
+                      <li>+ INFO</li>
+                    </ul>
+                  </div>
                 </ul>
               </div>
             </div>

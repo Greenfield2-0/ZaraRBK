@@ -5,7 +5,7 @@ const CartPage: React.FC = (): JSX.Element => {
     return (
       <div>
 
-        <Header/>
+      
       <div id="cartPage">
         
         <Cart />
