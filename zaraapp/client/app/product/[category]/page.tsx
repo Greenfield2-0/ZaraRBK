@@ -33,12 +33,14 @@ const OneProduct: React.FC = () => {
         return (
             <div>
              {products.map((product, index) => (
-              <div key={index}>
-                <Link href= {`/prod/${product.productname}`}>
-                <img src={product.productimage}/>
+              <div key={index}   >
+                <Link href= {`/prod/${product.productname}`}  style={{marginTop : "200px" , marginLeft : "100px"}} >
+                <img src={product.productimage}  style={{  marginLeft : "420px", marginTop : "150px",  width : "340px" , height : "500px"}}   />
                 </Link>
-                <div className='subdivproduct'   >
-                <h6>{product.productname}</h6>
+                <div className='subdivproduct'  style={{  marginLeft : "520px", marginTop : "15px" , fontFamily: 'Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif',
+  color: 'rgb(134, 134, 134)',
+  fontSize: '15px'}}  >
+                <h6   >{product.productname}</h6>
                 <h5>{product.productprice}</h5>
                 </div>
               </div>
