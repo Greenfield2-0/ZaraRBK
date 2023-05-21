@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
+import './product.css';
 import "./details.css"
 
 interface Product {
@@ -15,6 +16,7 @@ interface Product {
   'productsub-sub-category': string;
   productimage: string;
 }
+
 
 const OneProduct: React.FC = () => {
     const [category, setCategory] = useState<String>("")
@@ -47,6 +49,10 @@ const OneProduct: React.FC = () => {
             ))} 
           </div>
   );
-};
+    
+  return null;
+  }
+
 
 export default OneProduct;
+

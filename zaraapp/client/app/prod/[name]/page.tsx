@@ -97,7 +97,7 @@ const prod: Product = {
     slidesToScroll: 1,
   };
   return (
-    <div   >
+    <div>
       <div className="container">
         <div className="left">
           <h2>MATERIALS, CARE AND ORIGIN</h2>
@@ -112,8 +112,7 @@ To assess compliance, we have developed a programme of audits and continuous imp
 
           <h2>MATERIALS</h2>
           <p>
-          We work with monitoring programmes to ensure compliance with our social, environmental and health and safety standards for our garments.
-
+            We work with monitoring programmes to ensure compliance with our social, environmental and health and safety standards for our garments.
           </p>
           <br />
           <p>The Green to Wear 2.0 standard aims to minimize the environmental impact.</p>
@@ -155,7 +154,7 @@ To assess compliance, we have developed a programme of audits and continuous imp
             <button>Process order</button>
 
             <p>CHECK IN-STORE AVAILABILITY
-DELIVERY, EXCHANGES AND RETURNS</p>
+              DELIVERY, EXCHANGES AND RETURNS</p>
           </div>
         </div>
       </div>
